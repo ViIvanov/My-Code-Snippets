@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Check string argument on null or empty</Title>
+      <Shortcut>ans</Shortcut>
+      <Description>Throws ArgumentNullException when string argument is null or empty string</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@ViIvanov</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ArgumentName</ID>
+          <ToolTip>Name of the argument</ToolTip>
+          <Default>ArgName</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>String</ID>
+          <Function>SimpleTypeName(global::System.String)</Function>
+          <ToolTip>System.String type</ToolTip>
+        </Literal>
+        <Literal Editable="false">
+          <ID>ArgumentNullException</ID>
+          <Function>SimpleTypeName(global::System.ArgumentNullException)</Function>
+          <ToolTip>Type of the Exception</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[if($String$.IsNullOrEmpty($ArgumentName$)) {
+      throw new $ArgumentNullException$(nameof($ArgumentName$));
+    }//if
+    $end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Check next string argument on null or empty</Title>
+      <Shortcut>ans2</Shortcut>
+      <Description>Throws ArgumentNullException when string argument is null or empty string</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@ViIvanov</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>ArgumentName</ID>
+          <ToolTip>Name of the argument</ToolTip>
+          <Default>ArgName</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>String</ID>
+          <Function>SimpleTypeName(global::System.String)</Function>
+          <ToolTip>System.String type</ToolTip>
+        </Literal>
+        <Literal Editable="false">
+          <ID>ArgumentNullException</ID>
+          <Function>SimpleTypeName(global::System.ArgumentNullException)</Function>
+          <ToolTip>Type of the exception</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[} else if($String$.IsNullOrEmpty($ArgumentName$)) {
+      throw new $ArgumentNullException$(nameof($ArgumentName$));$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

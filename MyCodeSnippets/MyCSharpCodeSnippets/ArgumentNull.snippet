@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Check argument on null</Title>
+      <Shortcut>an</Shortcut>
+      <Description>Throws ArgumentNullException when argument is null</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@ViIvanov</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ArgumentName</ID>
+          <ToolTip>Name of the argument</ToolTip>
+          <Default>ArgumentName</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>ArgumentNullException</ID>
+          <Function>SimpleTypeName(global::System.ArgumentNullException)</Function>
+          <ToolTip>Type of the Exception</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[if($ArgumentName$ is null) {
+      throw new $ArgumentNullException$(nameof($ArgumentName$));
+    }//if
+    $end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Check next argument on null</Title>
+      <Shortcut>an2</Shortcut>
+      <Description>Throws ArgumentNullException when argument is null</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@ViIvanov</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ArgumentName</ID>
+          <ToolTip>Name of the argument</ToolTip>
+          <Default>ArgumentName</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>ArgumentNullException</ID>
+          <Function>SimpleTypeName(global::System.ArgumentNullException)</Function>
+          <ToolTip>Type of the Exception</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[} else if($ArgumentName$ is null) {
+      throw new $ArgumentNullException$(nameof($ArgumentName$));$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

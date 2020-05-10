@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Force launch debugger</Title>
+      <Description>Forces to launch a debugger if none is attached already.</Description>
+      <Shortcut>dbglaunch</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@MeikTranel, (https://twitter.com/MeikTranel/status/1258776476322693121)</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="false">
+          <ID>Debugger</ID>
+          <Function>SimpleTypeName(global::System.Diagnostics.Debugger)</Function>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[if(!$Debugger$.IsAttached) {
+  $Debugger$.Launch();
+}//if
+
+$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

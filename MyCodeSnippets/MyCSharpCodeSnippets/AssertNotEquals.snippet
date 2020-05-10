@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Assert (Not Equals)</Title>
+      <Description>Code snippet for insert Negative Assert Condition</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@ViIvanov</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Left</ID>
+          <ToolTip>Left Expression</ToolTip>
+          <Default>false</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>Debug</ID>
+          <Function>SimpleTypeName(global::System.Diagnostics.Debug)</Function>
+        </Literal>
+        <Literal Editable="false">
+          <ID>Exception</ID>
+          <Function>SimpleTypeName(global::System.InvalidOperationException)</Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Right</ID>
+          <ToolTip>Right expression</ToolTip>
+          <Default>true</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Debug$.Assert($Left$ != $Right$, "$Left$ != $Right$");
+if($Left$ == $Right$) {
+  throw new $Exception$("$Left$ == $Right$");
+}//if
+
+$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

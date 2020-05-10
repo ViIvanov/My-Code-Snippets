@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="MyCodeSnippets.dd29af13-f0b6-4fc5-bc76-d2f01ba675f7" Version="1.0" Language="en-US" Publisher="Viacheslav Ivanov, @ViIvanov" />
+        <DisplayName>MyCodeSnippets</DisplayName>
+        <Description xml:space="preserve">Additional and customized predefined code snippets mfor C# code.</Description>
+        <License>LICENSE</License>
+        <Tags>Code snippets, Snippets, C#, CSharp</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0, 17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0, 17.0)" />
+    </Installation>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="MyCodeSnippets.VisualStudio.pkgdef" />
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0, 17.0)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.Roslyn.LanguageServices" Version="[15.0, 17.0)" DisplayName="C# and Visual Basic" />
+    </Prerequisites>
+</PackageManifest>

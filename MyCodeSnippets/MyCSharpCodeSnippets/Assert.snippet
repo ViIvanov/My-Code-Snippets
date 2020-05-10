@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Assert</Title>
+      <Description>Code snippet for insert Assert</Description>
+      <Shortcut>assert</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@ViIvanov</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Diagnostics</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Condition</ID>
+          <Default>false</Default>
+        </Literal>
+        <Literal Editable="false">
+          <ID>Debug</ID>
+          <Function>SimpleTypeName(global::System.Diagnostics.Debug)</Function>
+        </Literal>
+        <Literal Editable="false">
+          <ID>Exception</ID>
+          <Function>SimpleTypeName(global::System.InvalidOperationException)</Function>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Debug$.Assert($Condition$, "$Condition$");
+if(!($Condition$)) {
+  throw new $Exception$("$Condition$");
+}//if
+
+$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>IComparable&lt;&gt; implementation for a value type</Title>
+      <Description>Adds implementation stub for IComparable&lt;&gt; and IComparable interfaces.</Description>
+      <Shortcut>comparablestruct</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Author>@ViIvanov</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="false">
+          <ID>TypeName</ID>
+          <Function>ClassName()</Function>
+          <ToolTip>Name of the type</ToolTip>
+        </Literal>
+        <Literal Editable="false">
+          <ID>ArgumentException</ID>
+          <Function>SimpleTypeName(global::System.ArgumentException)</Function>
+          <ToolTip>Type of the exception</ToolTip>
+        </Literal>
+        <Literal Editable="false">
+          <ID>NotImplementedException</ID>
+          <Function>SimpleTypeName(global::System.NotImplementedException)</Function>
+          <ToolTip>Type of the exception</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[public int CompareTo($TypeName$ other) {
+  $end$throw new $NotImplementedException$();
+}
+
+int IComparable.CompareTo(object? obj) => (obj is $TypeName$ typed) ? CompareTo(typed) : throw new $ArgumentException$("Value is not the same type as this instance.", nameof(obj));
+
+public static bool operator <($TypeName$ left, $TypeName$ right) => left.CompareTo(right) < 0;
+public static bool operator >($TypeName$ left, $TypeName$ right) => left.CompareTo(right) > 0;
+public static bool operator <=($TypeName$ left, $TypeName$ right) => left.CompareTo(right) <= 0;
+public static bool operator >=($TypeName$ left, $TypeName$ right) => left.CompareTo(right) >= 0;]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
